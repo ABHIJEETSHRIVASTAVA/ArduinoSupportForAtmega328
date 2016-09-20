@@ -1,0 +1,34 @@
+README FILE
+
+Simplest Solution To Make Arduino support For Atmega 328 (i.e with no P)
+
+1. Extract this hardware.z
+2. Copy it inside the Arduino Folder
+3. When Prompted for same file exist .Select the Option for Overrite(Replace) the OLD files with NEW ones.
+Because it Contains The Definations, Configuration and tools for Arduino Envirornment And compile and upload for ATmega328(no P).
+
+HOW IT WORKS
+
+'hardware' Folder inside Arduino Folder(Home folder of Arduino) contains Two subfolders
+	1.arduino 	:-	contains Board Descriptions 
+	2.Tools  	:-	contains tools for Compiling(avr-gcc) and Uploading(avrdude)
+BY default Arduino Environment Does not Support Atmega328 as it does not contain Defination of Atega328 and it's tools are also does not have support for Atmega328
+
+Solution
+######################1 Adding and configuring the tools for Atmega328##################
+The latest avr-gcc and avrdude Support ATmega328 but one That is included in Arduino are older Version which does not have support for it
+So the LATEST AVR COMPILE AND UPLOAD TOOLS are added and configured(Configuration file for avrdude is in the location (Arduino Home)/hardware/tools/avr/etc/avrdude.conf)
+
+ATmega328 coniguration is added just after the configuration of ATmega328P
+
+
+######################2 Adding Uno a new board in Arduino Environment##################
+Configuration For Atmega328 is almost similar to Atmega328P
+Configuration File is in (Arduino Home)/hardware/arduino/boards.txt
+The new Board is added in 2nd Position in Configuration file with:-
+ID=uno328
+name=Arduino Uno w/Atmega328(no P)
+mcu=atmega328
+
+All the rest details will Be similar to ATMega328p
+	
